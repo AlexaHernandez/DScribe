@@ -1,0 +1,158 @@
+{
+  "classes": [
+    {
+      "fullname": "ca.mcgill.cs.jetuml.geom.Direction",
+      "methods": [
+        {
+          "name": "toString",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Four",
+                "$oracle$": "\"[Direction: x=0.71 y=0.71]\"",
+                "$factory$": "DirectionUtils.FOUR",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Zero",
+                "$oracle$": "\"[Direction: x=0.00 y=0.00]\"",
+                "$factory$": "DirectionUtils.ZERO",
+                "$params$": []
+              }
+            }	
+          ]
+        },
+        {
+          "name": "getY",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getX",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "turn",
+          "parameters": [
+            "double"
+          ],
+          "tests": [
+          	{
+              "templateName": "testMethod", 
+              "placeholders": {
+                "$state$": "FourClockwise90",
+                "$factory$": "DirectionUtils.FOUR",
+                "$params$": ["-90"],
+                "$oracle1$": "1 / Math.sqrt(2)",
+                "$getter1$": "getX",
+                "$delta1$": "0.0001",
+                "$oracle2$": "-1 / Math.sqrt(2)",
+                "$getter2$": "getY",
+                "$delta2$": "0.0001"
+              }
+            },
+            {
+              "templateName": "testMethod", 
+              "placeholders": {
+                "$state$": "ZeroClockwise40",
+                "$factory$": "DirectionUtils.ZERO",
+                "$params$": ["-40"],
+                "$oracle1$": "0",
+                "$getter1$": "getX",
+                "$delta1$": "0",
+                "$oracle2$": "0",
+                "$getter2$": "getY",
+                "$delta2$": "0"
+              }
+            },
+            {
+              "templateName": "testMethod", 
+              "placeholders": {
+                "$state$": "FourCounterClockwise90",
+                "$factory$": "DirectionUtils.FOUR",
+                "$params$": ["90"],
+                "$oracle1$": "-1 / Math.sqrt(2)",
+                "$getter1$": "getX",
+                "$delta1$": "0.0001",
+                "$oracle2$": "1 / Math.sqrt(2)",
+                "$getter2$": "getY",
+                "$delta2$": "0.0001"
+              }
+            },
+            {
+              "templateName": "testMethod", 
+              "placeholders": {
+                "$state$": "FourClockwise0",
+                "$factory$": "DirectionUtils.FOUR",
+                "$params$": ["0"],
+                "$oracle1$": "1 / Math.sqrt(2)",
+                "$getter1$": "getX",
+                "$delta1$": "0.0001",
+                "$oracle2$": "1 / Math.sqrt(2)",
+                "$getter2$": "getY",
+                "$delta2$": "0.0001"
+              }
+            }		
+          ]
+        },
+        {
+          "name": "Direction",
+          "parameters": [
+            "ca.mcgill.cs.jetuml.geom.Point",
+            "ca.mcgill.cs.jetuml.geom.Point"
+          ],
+          "tests": [
+          	{
+              "templateName": "testConstructor", 
+              "placeholders": {
+                "$state$": "OneToTwo",
+                "$params$": ["new Point(1, 2)", "new Point(2, 4)"],
+                "$oracle1$": "1 / Math.sqrt(5)",
+                "$getter1$": "getX",
+                "$oracle2$": "2 / Math.sqrt(5)",
+                "$getter2$": "getY"
+                }
+            }
+          ]
+        },
+        {
+          "name": "Direction",
+          "parameters": [
+            "double",
+            "double"
+          ],
+          "tests": [
+          	{
+              "templateName": "testConstructor", 
+              "placeholders": {
+                "$state$": "Four",
+                "$params$": ["4", "4"],
+                "$oracle1$": "1 / Math.sqrt(2)",
+                "$getter1$": "getX",
+                "$oracle2$": "1 / Math.sqrt(2)",
+                "$getter2$": "getY"
+                }
+            },
+           {
+              "templateName": "testConstructor", 
+              "placeholders": {
+                "$state$": "Zero",
+                "$params$": ["0", "0"],
+                "$oracle1$": "0",
+                "$getter1$": "getX",
+                "$oracle2$": "0",
+                "$getter2$": "getY"
+                }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

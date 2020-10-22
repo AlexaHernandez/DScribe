@@ -1,0 +1,127 @@
+{
+  "classes": [
+    {
+      "fullname": "ca.mcgill.cs.jetuml.geom.Dimension",
+      "methods": [
+        {
+          "name": "equals",
+          "parameters": [
+            "java.lang.Object"
+          ],
+          "tests": [
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "Same",
+                "$bool$": "True",
+                "$factory$": "DimensionUtils.ZERO",
+                "$params$": "DimensionUtils.ZERO"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "Equal",
+                "$bool$": "True",
+                "$factory$": "DimensionUtils.ZERO",
+                "$params$": "new Dimension(0, 0)"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "NotEqual",
+                "$bool$": "False",
+                "$factory$": "DimensionUtils.ZERO",
+                "$params$": "DimensionUtils.FIVE"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "NullDim",
+                "$bool$": "False",
+                "$factory$": "DimensionUtils.ZERO",
+                "$params$": "(Dimension) null"                
+              }
+            }
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "hashCode",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Same",
+                "$oracle$": "DimensionUtils.EIGHT.hashCode()",
+                "$factory$": "DimensionUtils.EIGHT",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Equal",
+                "$oracle$": "DimensionUtils.FIVE.hashCode()",
+                "$factory$": "new Dimension(5, 5)",
+                "$params$": []
+              }
+            }	
+          ]
+        },
+        {
+          "name": "include",
+          "parameters": [
+            "int",
+            "int"
+          ],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Grow",
+                "$oracle$": "DimensionUtils.EIGHT",
+                "$factory$": "DimensionUtils.FIVE",
+                "$params$": ["8", "8"]
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Zero",
+                "$oracle$": "DimensionUtils.FIVE",
+                "$factory$": "DimensionUtils.FIVE",
+                "$params$": ["1", "4"]
+              }
+            }
+          ]
+        },
+        {
+          "name": "getWidth",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getHeight",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "Dimension",
+          "parameters": [
+            "int",
+            "int"
+          ],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

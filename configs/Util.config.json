@@ -1,0 +1,67 @@
+{
+  "classes": [
+    {
+      "fullname": "ca.mcgill.cs.jetuml.geom.Util",
+      "methods": [
+        {
+          "name": "max",
+          "parameters": [
+            "int[]"
+          ],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Bottom",
+                "$oracle$": "Integer.MIN_VALUE",
+                "$factory$": "Util",
+                "$params$": ["Integer.MIN_VALUE"]
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Top",
+                "$oracle$": "Integer.MAX_VALUE",
+                "$factory$": "Util",
+                "$params$": ["Integer.MAX_VALUE"]
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "OnlyNegatives",
+                "$oracle$": "-1",
+                "$factory$": "Util",
+                "$params$": ["-10", "-1", "-40", "-50"]
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "OnlyPositives",
+                "$oracle$": "200",
+                "$factory$": "Util",
+                "$params$": ["10", "200", "3", "150"]
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Mix",
+                "$oracle$": "880",
+                "$factory$": "Util",
+                "$params$": ["10", "-2", "450", "-35", "260", "-540", "880", "-53"]
+                }
+            }					
+          ]
+        },
+        {
+          "name": "Util",
+          "parameters": [],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

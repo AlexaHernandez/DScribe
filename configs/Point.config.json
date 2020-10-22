@@ -1,0 +1,191 @@
+{
+  "classes": [
+    {
+      "fullname": "ca.mcgill.cs.jetuml.geom.Point",
+      "methods": [
+        {
+          "name": "equals",
+          "parameters": [
+            "java.lang.Object"
+          ],
+          "tests": [
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "Same",
+                "$bool$": "True",                
+                "$factory$": "PointUtils.ZERO",
+                "$params$": "PointUtils.ZERO"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "Equal",
+                "$bool$": "True",
+                "$factory$": "PointUtils.TWO",
+                "$params$": "new Point(2, 2)"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "NotEqual",
+                "$bool$": "False",
+                "$factory$": "PointUtils.ZERO",
+                "$params$": "PointUtils.M_ONE"
+                }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "NullDim",
+                "$bool$": "False",
+                "$factory$": "PointUtils.TWO",
+                "$params$": "(Point) null"
+              }
+            }
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Zero",
+                "$oracle$": "\"(x=0,y=0)\"",
+                "$factory$": "PointUtils.ZERO",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Two",
+                "$oracle$": "\"(x=2,y=2)\"",
+                "$factory$": "PointUtils.TWO",
+                "$params$": []
+              }
+            }		
+          ]
+        },
+        {
+          "name": "hashCode",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Same",
+                "$oracle$": "PointUtils.ZERO.hashCode()",
+                "$factory$": "PointUtils.ZERO",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Equal",
+                "$oracle$": "PointUtils.TWO.hashCode()",
+                "$factory$": "new Point(2, 2)",
+                "$params$": []
+              }
+            }	
+          ]
+        },
+        {
+          "name": "clone",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "testClone", 
+              "placeholders": {
+                "$state$": "Two",
+                "$factory$": "PointUtils.TWO"
+              }
+            },
+            {
+              "templateName": "testClone", 
+              "placeholders": {
+                "$state$": "Zero",
+                "$factory$": "PointUtils.ZERO"
+              }
+            }
+          ]
+        },
+        {
+          "name": "distance",
+          "parameters": [
+            "ca.mcgill.cs.jetuml.geom.Point"
+          ],
+          "tests": [
+          	{
+              "templateName": "assertEqualsDelta", 
+              "placeholders": {
+                "$state$": "ZeroZero",
+                "$oracle$": "0",
+                "$factory$": "PointUtils.ZERO",
+                "$params$": ["PointUtils.ZERO"],
+                "$delta$": "0"
+              }
+            },
+            {
+              "templateName": "assertEqualsDelta", 
+              "placeholders": {
+                "$state$": "ZeroTwo",
+                "$oracle$": "2.8284",
+                "$factory$": "PointUtils.ZERO",
+                "$params$": ["PointUtils.TWO"],
+                "$delta$": "0.0001"
+              }
+            },
+            {
+              "templateName": "assertEqualsDelta", 
+              "placeholders": {
+                "$state$": "TwoMOne",
+                "$oracle$": "4.2426",
+                "$factory$": "PointUtils.TWO",
+                "$params$": ["PointUtils.M_ONE"],
+                "$delta$": "0.0001"
+              }
+            }
+          ]
+        },
+        {
+          "name": "setY",
+          "parameters": [
+            "int"
+          ],
+          "tests": []
+        },
+        {
+          "name": "getY",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "setX",
+          "parameters": [
+            "int"
+          ],
+          "tests": []
+        },
+        {
+          "name": "getX",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "Point",
+          "parameters": [
+            "int",
+            "int"
+          ],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

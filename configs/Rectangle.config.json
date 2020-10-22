@@ -1,0 +1,412 @@
+{
+  "classes": [
+    {
+      "fullname": "ca.mcgill.cs.jetuml.geom.Rectangle",
+      "methods": [
+        {
+          "name": "add",
+          "parameters": [
+            "ca.mcgill.cs.jetuml.geom.Rectangle"
+          ],
+          "tests": [
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "RectOutside",
+                "$oracle$": "new Rectangle(0, 0, 80, 60)",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "new Rectangle(70, 50, 10, 10)"
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "RectSame",
+                "$oracle$": "new Rectangle(0, 0, 60, 40)",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "RectangleUtils.RECT_1"
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "RectOverlap",
+                "$oracle$": "new Rectangle(100, 20, 10, 10)",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": "new Rectangle(100, 20, 10, 10)"
+              }
+            }
+          ]
+        },
+        {
+          "name": "add",
+          "parameters": [
+            "ca.mcgill.cs.jetuml.geom.Point"
+          ],
+          "tests": [
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "PointGreaterX",
+                "$oracle$": "new Rectangle(0, 0, 70, 40)",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "new Point(70, 10)"
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "PointGreaterY",
+                "$oracle$": "new Rectangle(0, 0, 60, 45)",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "new Point(0, 45)"
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "PointGreaterXAndY",
+                "$oracle$": "new Rectangle(100, 20, 10, 10)",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": "new Point(110, 30)"
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "PointInside",
+                "$oracle$": "new Rectangle(0, 0, 60, 40)",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "new Point(10, 10)"
+              }
+            }
+          ]
+        },
+        {
+          "name": "equals",
+          "parameters": [
+            "java.lang.Object"
+          ],
+          "tests": [
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "Same",
+                "$bool$": "True",                
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "RectangleUtils.RECT_1"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "Equal",
+                "$bool$": "True",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": "new Rectangle(100,20,1,1)"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "NotEqual",
+                "$bool$": "False",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "RectangleUtils.RECT_2"
+                }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "NullDim",
+                "$bool$": "False",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "(Rectangle) null"
+              }
+            }
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect1",
+                "$oracle$": "\"[x=0, y=0, w=60, h=40]\"",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect2",
+                "$oracle$": "\"[x=100, y=20, w=1, h=1]\"",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": []
+              }
+            }		
+          ]
+        },
+        {
+          "name": "hashCode",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Same",
+                "$oracle$": "RectangleUtils.RECT_1.hashCode()",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Equal",
+                "$oracle$": "RectangleUtils.RECT_2.hashCode()",
+                "$factory$": "new Rectangle(100, 20, 1, 1)",
+                "$params$": []
+              }
+            }	
+          ]
+        },
+        {
+          "name": "contains",
+          "parameters": [
+            "ca.mcgill.cs.jetuml.geom.Rectangle"
+          ],
+          "tests": [
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "RectInside",
+                "$bool$": "True",                
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "RectangleUtils.RECT_3"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "RectSame",
+                "$bool$": "True",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": "RectangleUtils.RECT_2"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "RectOutside",
+                "$bool$": "False",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "RectangleUtils.RECT_2"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "RectOverlap",
+                "$bool$": "False",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "RectangleUtils.RECT_4"
+              }
+            }
+          ]
+        },
+        {
+          "name": "contains",
+          "parameters": [
+            "ca.mcgill.cs.jetuml.geom.Point"
+          ],
+          "tests": [
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "PointInside",
+                "$bool$": "True",                
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "new Point(20, 30)"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "PointOnEdge",
+                "$bool$": "True",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "new Point(0, 20)"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "PointOnCorner",
+                "$bool$": "True",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "new Point(60, 40)"
+                }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "PointOutside",
+                "$bool$": "False",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": "new Point(70, 50)"
+              }
+            }
+          ]
+        },
+        {
+          "name": "getCenter",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect1",
+                "$oracle$": "new Point(30, 20)",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect2",
+                "$oracle$": "new Point(100, 20)",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": []
+              }
+            }	
+          ]
+        },
+        {
+          "name": "getMaxX",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect1",
+                "$oracle$": "60",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect2",
+                "$oracle$": "101",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "getY",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getX",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getWidth",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getHeight",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getOrigin",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect1",
+                "$oracle$": "new Point(0, 0)",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "getMaxY",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect1",
+                "$oracle$": "40",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Rect2",
+                "$oracle$": "21",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "translated",
+          "parameters": [
+            "int",
+            "int"
+          ],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "PosAmt",
+                "$oracle$": "new Rectangle(15, 40, 60, 40)",
+                "$factory$": "RectangleUtils.RECT_1",
+                "$params$": ["15", "40"]
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "NegAmt",
+                "$oracle$": "new Rectangle(80,10,1,1)",
+                "$factory$": "RectangleUtils.RECT_2",
+                "$params$": ["-20", "-10"]
+              }
+            }		
+          ]
+        },
+        {
+          "name": "Rectangle",
+          "parameters": [
+            "int",
+            "int",
+            "int",
+            "int"
+          ],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,183 @@
+{
+  "classes": [
+    {
+      "fullname": "ca.mcgill.cs.jetuml.geom.Line",
+      "methods": [
+        {
+          "name": "equals",
+          "parameters": [
+            "java.lang.Object"
+          ],
+          "tests": [
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "Same",
+                "$bool$": "True",                
+                "$factory$": "LineUtils.TWO_TO_SIX",
+                "$params$": "LineUtils.TWO_TO_SIX"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "Equal",
+                "$bool$": "True",
+                "$factory$": "LineUtils.TWO_TO_SIX",
+                "$params$": "new Line(LineUtils.TWO, LineUtils.SIX)"
+              }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "NotEqual",
+                "$bool$": "False",
+                "$factory$": "LineUtils.TWO_TO_SIX",
+                "$params$": "LineUtils.ONE_TO_TWO"
+                }
+            },
+            {
+              "templateName": "assertBool", 
+              "placeholders": {
+                "$state$": "NullDim",
+                "$bool$": "False",
+                "$factory$": "LineUtils.ONE_TO_TWO",
+                "$params$": "(Line) null"
+              }
+            }
+          ]
+        },
+        {
+          "name": "toString",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "TwoToSix",
+                "$oracle$": "\"[(x=2,y=2), (x=6,y=6)]\"",
+                "$factory$": "LineUtils.TWO_TO_SIX",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "OneToTwo",
+                "$oracle$": "\"[(x=1,y=1), (x=2,y=2)]\"",
+                "$factory$": "LineUtils.ONE_TO_TWO",
+                "$params$": []
+              }
+            }		
+          ]
+        },
+        {
+          "name": "hashCode",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Same",
+                "$oracle$": "LineUtils.TWO_TO_SIX.hashCode()",
+                "$factory$": "LineUtils.TWO_TO_SIX",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "Equal",
+                "$oracle$": "LineUtils.TWO_TO_SIX.hashCode()",
+                "$factory$": "new Line(LineUtils.TWO, LineUtils.SIX)",
+                "$params$": []
+              }
+            }	
+          ]
+        },
+        {
+          "name": "clone",
+          "parameters": [],
+          "tests": [
+          	{
+              "templateName": "testClone", 
+              "placeholders": {
+                "$state$": "TwoToSix",
+                "$factory$": "LineUtils.TWO_TO_SIX"
+              }
+            },
+            {
+              "templateName": "testClone", 
+              "placeholders": {
+                "$state$": "OneToTwo",
+                "$factory$": "LineUtils.ONE_TO_TWO"
+              }
+            }
+          ]
+        },
+        {
+          "name": "getY1",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "spanning",
+          "parameters": [],
+          "tests": [
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "TwoToSix",
+                "$oracle$": "new Rectangle(2, 2, 4, 4)",
+                "$factory$": "LineUtils.TWO_TO_SIX",
+                "$params$": []
+              }
+            },
+            {
+              "templateName": "assertEquals", 
+              "placeholders": {
+                "$state$": "OneToTwo",
+                "$oracle$": "new Rectangle(1, 1, 1, 1)",
+                "$factory$": "LineUtils.ONE_TO_TWO",
+                "$params$": []
+              }
+            }
+          ]
+        },
+        {
+          "name": "getX2",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getPoint2",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getX1",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getY2",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "getPoint1",
+          "parameters": [],
+          "tests": []
+        },
+        {
+          "name": "Line",
+          "parameters": [
+            "ca.mcgill.cs.jetuml.geom.Point",
+            "ca.mcgill.cs.jetuml.geom.Point"
+          ],
+          "tests": []
+        }
+      ]
+    }
+  ]
+}
