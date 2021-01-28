@@ -45,6 +45,8 @@ public class CreateConfig implements Callable<Integer>
 	@Override
 	public Integer call()
 	{
+		System.out.println("Class names: ");
+		className.forEach(System.out::println);
 		List<Class<?>> sources = resolveClassNames(className);
 		writeConfigFiles(sources);
 		return 0;

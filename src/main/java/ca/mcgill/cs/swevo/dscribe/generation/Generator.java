@@ -37,8 +37,15 @@ public abstract class Generator
 	public void prepare(Context context)
 	{
 		repository = context.templateRepository();
+		System.out.println("INSTANCE PATHS");
+		System.out.println(context.templateInstancesPaths());
 		invocations = context.templateInstancesPaths().stream().map(TemplateInstances::fromJson)
 				.collect(Collectors.toList());
+		TemplateInstances t = invocations.get(0);
+		for (FocalClass fc: t) {
+			System.out.println(fc.getName());	
+		}
+		
 		invocations.forEach(i -> i.validate(repository).forEach(System.out::println));
 	}
 

@@ -16,6 +16,7 @@
 package ca.mcgill.cs.swevo.dscribe.instance;
 
 import static java.nio.charset.StandardCharsets.UTF_8;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.io.IOException;
 import java.lang.reflect.Constructor;
@@ -31,6 +32,8 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import org.junit.jupiter.api.Test;
+
 import com.github.javaparser.ast.CompilationUnit;
 import com.github.javaparser.ast.PackageDeclaration;
 import com.github.javaparser.ast.body.MethodDeclaration;
@@ -40,6 +43,7 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.annotations.Expose;
 import com.google.gson.stream.JsonReader;
 
+import ca.mcgill.cs.swevo.dscribe.annotation.AssertBool;
 import ca.mcgill.cs.swevo.dscribe.parsing.UnitTestParser;
 import ca.mcgill.cs.swevo.dscribe.template.TemplateRepository;
 import ca.mcgill.cs.swevo.dscribe.utils.exceptions.InvocationException;
@@ -64,6 +68,8 @@ public class TemplateInstances implements Iterable<FocalClass>
 
 	public static TemplateInstances fromJson(Path jsonFile)
 	{
+		System.out.println("Inside template instances");
+		System.out.println(jsonFile);
 		try (JsonReader reader = new JsonReader(Files.newBufferedReader(jsonFile, UTF_8)))
 		{
 			return GSON.fromJson(reader, TemplateInstances.class);
@@ -90,6 +96,7 @@ public class TemplateInstances implements Iterable<FocalClass>
 		return instances;
 	}
 
+
 	private static FocalClass initFocalClass(Class<?> source)
 	{
 		FocalClass root = new FocalClass(source.getCanonicalName());
@@ -100,12 +107,15 @@ public class TemplateInstances implements Iterable<FocalClass>
 				continue;
 			}
 			String name = method.getName();
+			System.out.println("\t " + name);
 			List<String> parameters = new ArrayList<>();
 			for (Class<?> param : method.getParameterTypes())
 			{
 				parameters.add(param.getCanonicalName());
 			}
 			FocalMethod focus = new FocalMethod(name, parameters);
+			TemplateInstance test = getTestsFromAnnotations(method);
+			focus.addTest(test);
 			root.addFocalMethod(focus);
 		}
 		for (Constructor<?> constructor : source.getDeclaredConstructors())
@@ -122,6 +132,17 @@ public class TemplateInstances implements Iterable<FocalClass>
 		return root;
 	}
 
+	private static TemplateInstance getTestsFromAnnotations(Method method) 
+	{ 
+		System.out.println("CHECKING ANNOTATIONS");
+		AssertBool assertBool = method.getAnnotation(AssertBool.class);
+		if (assertBool != null) 
+		{
+			System.out.println("state: "+ assertBool.state());
+		}
+		return new TemplateInstance("assertBool", new HashMap<>());
+	}
+	
 	public static TemplateInstances fromUnitTests(CompilationUnit testClass, TemplateRepository repository)
 	{
 		String testPkg = testClass.getPackageDeclaration().map(PackageDeclaration::getNameAsString).orElse("");

@@ -46,6 +46,10 @@ public class TemplateInstance
 		this.templateName = templateName;
 		for (Entry<String, String[]> value : values.entrySet())
 		{
+			System.out.print("Key: ");
+			System.out.println(value.getKey());
+			System.out.println("Value: ");
+			System.out.println(value.getValue());
 			placeholders.put(value.getKey(), new PlaceholderValue(value.getValue()));
 		}
 	}
