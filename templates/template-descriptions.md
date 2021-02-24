@@ -1,4 +1,4 @@
-| UUT Level | Specicification | Checks |      Template | Documentation
+| UUT Level | Specification | Checks |      Template | Documentation
 |-----------|-----------------|--------|---------------|---------------|
 | Class |The class implements the singleton DP|(1) There is no public constructors; (2) The static factory method always returns the same object | [T1](https://github.com/AlexaHernandez/DScribe/blob/ff12f08d5b0b0d9420d0b9f1cd7599d69b6a2069/templates/Template.java#L13), [T2](https://github.com/AlexaHernandez/DScribe/blob/ff12f08d5b0b0d9420d0b9f1cd7599d69b6a2069/templates/Template.java#L20)
 | Class |The class implements a clone method|Suppose we have x2 = x1.clone(), we must check: (1) x1 != x2; (2)  1.getClass() == x2.getClass(); (3) x1.equals(x2)| [T1](https://github.com/AlexaHernandez/DScribe/blob/ff12f08d5b0b0d9420d0b9f1cd7599d69b6a2069/templates/Template.java#L28)
