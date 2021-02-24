@@ -10,7 +10,7 @@ public class $class$Test {
 	
 	// Use for Singleton and Flyweight
 	Template("NoPublicConstructor")
-	public void testSingleton_NoPublicConstructors()
+	public void test_NoPublicConstructors()
 	{
 		Constructor<?>[] publicConstructors = $class$.class.getConstructors();  // No input needed 
 		assertEquals(0, publicConstructors.length);
